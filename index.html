@@ -87,7 +87,8 @@
   .whatis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:38px;}
   @media(max-width:880px){.whatis-grid{grid-template-columns:1fr;gap:44px;}}
   .whatis-col .imgph{min-height:230px;margin-bottom:26px;}
-  .whatis-col h2{font-size:clamp(22px,2.2vw,28px);margin-bottom:14px;}
+  .whatis-col h2{font-size:clamp(22px,2.2vw,28px);line-height:1.25;min-height:2.5em;margin-bottom:14px;display:flex;align-items:flex-end;}
+  @media(max-width:880px){.whatis-col h2{min-height:0;}}
   .whatis-col p{color:var(--muted);font-size:15px;line-height:1.75;}
   .imgph{border-radius:8px;min-height:320px;background:linear-gradient(135deg,#dfe6ee 0%,#c6d2de 60%,#aebccb 100%);display:flex;align-items:flex-end;justify-content:flex-end;padding:14px;}
   .imgph.warm{background:linear-gradient(135deg,#f0e4d7 0%,#e3cfba 60%,#d4bba0 100%);}
@@ -244,7 +245,7 @@
         <span class="snum">02</span>
         <div class="sic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Complete your intake</h3>
-        <p>A secure, HIPAA-compliant health questionnaire tells our medical team about your goals and history.</p>
+        <p>A secure, HIPAA-compliant health questionnaire tells our medical team about your goals, history, and current health.</p>
       </div>
       <div class="scard">
         <span class="snum">03</span>
@@ -268,18 +269,18 @@
     <div class="whatis-grid">
       <div class="whatis-col">
         <div class="imgph img-whatis" role="img" aria-label="Two peptide vials on a marble counter"></div>
-        <h2>What Is Peptide Therapy?</h2>
-        <p>Peptides are short chains of amino acids — your body's own messengers. They tell your body when to burn fat, build collagen, repair tissue, and release hormones. Peptide therapy uses targeted, prescription-grade peptides to support those natural processes, matched to your specific goals.</p>
+        <h2>What Is Peptide Therapy and How Does It Work?</h2>
+        <p>Peptides are short chains of amino acids — your body's own messengers. They tell your body when to burn fat, build collagen, repair tissue, and release hormones. Peptide therapy uses prescription-grade peptides to support those natural processes.</p>
       </div>
       <div class="whatis-col">
         <div class="imgph img-physician" role="img" aria-label="Provider reviewing a health intake with a client"></div>
         <h2>Physician-Guided, Prescription-Based</h2>
-        <p>This is not an over-the-counter supplement program. Every client completes a HIPAA-compliant health intake and a one-on-one call with a licensed provider. Your prescription is issued only when therapy is right for you, and your progress is monitored over time.</p>
+        <p>This is not an over-the-counter supplement program. Every client completes a HIPAA-compliant health intake and a one-on-one call with a licensed provider. Your prescription is issued only when therapy is right for you, and your progress is monitored.</p>
       </div>
       <div class="whatis-col">
         <div class="imgph img-menwomen" role="img" aria-label="A man and a woman in a wellness studio"></div>
         <h2>Peptides for Men and Women</h2>
-        <p>Peptide therapy is used by both men and women — to manage weight, recover from training, sleep more deeply, sharpen focus, and keep skin and hair healthy. Your provider matches the right therapy to your body and your goals.</p>
+        <p>Peptide therapy is used by both men and women — to manage weight, recover from training, sleep more deeply, sharpen focus, and keep skin and hair healthy. Your provider matches the right therapy to your body, your lifestyle, and your goals.</p>
       </div>
     </div>
   </div>
@@ -364,7 +365,7 @@
         <span class="sub">Established prescription medications</span>
       </div>
       <div class="pep-matrix">
-        <div class="pcard"><div class="pimg p-sema" role="img" aria-label="Semaglutide vial"></div><div class="pbody"><b>Semaglutide</b><p>GLP-1 therapy supporting medically supervised weight management and appetite control.</p></div></div>
+        <div class="pcard"><div class="pimg p-sema" role="img" aria-label="Semaglutide vial"></div><div class="pbody"><b>Semaglutide</b><p>GLP-1 therapy for medically supervised weight loss and appetite control.</p></div></div>
         <div class="pcard"><div class="pimg p-tirz" role="img" aria-label="Tirzepatide vial"></div><div class="pbody"><b>Tirzepatide</b><p>Dual GIP/GLP-1 therapy for weight management and metabolic health.</p></div></div>
         <div class="pcard"><div class="pimg p-tesa" role="img" aria-label="Tesamorelin vial"></div><div class="pbody"><b>Tesamorelin</b><p>Growth-hormone-releasing therapy that targets stubborn abdominal fat.</p></div></div>
         <div class="pcard"><div class="pimg p-hcg" role="img" aria-label="HCG vial"></div><div class="pbody"><b>HCG</b><p>Supports hormonal balance and the body's natural testosterone production.</p></div></div>
