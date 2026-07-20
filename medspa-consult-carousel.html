@@ -21,12 +21,12 @@
   @media(max-width:640px){.callchip span{display:none}}
   .body{flex:1;display:flex;min-height:0}
 
-  .banner{width:410px;flex:0 0 410px;position:relative;overflow:hidden;background:linear-gradient(180deg,#faf3ea,var(--cream));
+  .banner{width:410px;flex:0 0 410px;position:relative;overflow:hidden;background:linear-gradient(170deg,#fdf1ec 0%,#fadfd5 55%,#f7cdbf 100%);
     margin:16px 0 16px 16px;border-radius:28px;box-shadow:0 12px 44px rgba(47,58,75,.12)}
   #blobs{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
   .scrim{position:absolute;inset:0;z-index:2;pointer-events:none;
-    background:radial-gradient(72% 46% at 42% 50%, rgba(250,243,234,.38), rgba(250,243,234,.14) 74%, transparent 100%),
-      linear-gradient(180deg, rgba(250,243,234,.18) 0%, rgba(250,243,234,.30) 26%, rgba(250,243,234,.32) 70%, rgba(250,243,234,.18) 100%)}
+    background:radial-gradient(72% 46% at 42% 50%, rgba(253,241,236,.38), rgba(253,241,236,.14) 74%, transparent 100%),
+      linear-gradient(180deg, rgba(253,241,236,.18) 0%, rgba(253,241,236,.30) 26%, rgba(253,241,236,.32) 70%, rgba(253,241,236,.18) 100%)}
 
   /* carousel */
   .panel{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:flex-start;padding:50px 30px 40px;
@@ -112,42 +112,7 @@
           </div>
         </section>
 
-        <!-- Panel 2: Featured therapies -->
-        <section class="panel" data-panel>
-          <div>
-            <div class="catch">Physician-guided,<br><span class="g">every step</span>.</div>
-            <div class="rule"></div>
-          </div>
-          <div class="news">
-            <div class="ncard">
-              <div class="nthumb">&#9878;&#65039;</div>
-              <div class="ntext">
-                <div class="nmeta"><span class="ntag">FARMACY GRADE</span></div>
-                <div class="nhead">Semaglutide</div>
-                <div class="nsub">GLP-1 therapy for medically supervised weight management</div>
-              </div>
-            </div>
-            <div class="ncard">
-              <div class="nthumb">&#128300;</div>
-              <div class="ntext">
-                <div class="nmeta"><span class="ntag">FARMACY GRADE</span></div>
-                <div class="nhead">Tirzepatide</div>
-                <div class="nsub">Dual GIP/GLP-1 therapy for weight and metabolic health</div>
-              </div>
-            </div>
-            <div class="ncard">
-              <div class="nthumb">&#127775;</div>
-              <div class="ntext">
-                <div class="nmeta"><span class="ntag">FARMACY GRADE</span></div>
-                <div class="nhead">Tesamorelin &middot; HCG &middot; Gonadorelin</div>
-                <div class="nsub">Targeted support, prescribed only after provider evaluation</div>
-              </div>
-            </div>
-          </div>
-          <div class="subline">Every therapy is prescribed only after an individual evaluation by a licensed medical provider.</div>
-        </section>
-
-        <!-- Panel 3: Testimonials -->
+        <!-- Panel 2: Testimonials -->
         <section class="panel" data-panel>
           <div>
             <div class="catch">Cared for,<br><span class="g">never sold to</span>.</div>
@@ -205,7 +170,7 @@
   function resize(){const p=canvas.parentElement;DPR=Math.min(window.devicePixelRatio||1,2);W=p.clientWidth;H=p.clientHeight;canvas.width=W*DPR;canvas.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
   window.addEventListener('resize',resize);
   let seed=23;const rnd=()=>{seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff;};
-  const COLS=[[247,108,94],[232,183,160],[47,58,75]];
+  const COLS=[[247,108,94],[224,90,76],[240,150,130]];
   const SPOTS=[[0.92,0.10,0.20],[0.10,0.16,0.13],[0.86,0.36,0.11],[0.06,0.42,0.17],[0.94,0.60,0.15],[0.10,0.70,0.11],[0.88,0.85,0.18],[0.16,0.92,0.14],[0.50,0.05,0.10],[0.55,0.95,0.12]];
   const blobs=SPOTS.map((s,i)=>({nx:s[0],ny:s[1],size:s[2],col:COLS[i%COLS.length],phase:rnd()*6.283,speed:0.00012+rnd()*0.00015,amp:10+rnd()*16,zPhase:rnd()*6.283,zPeriod:6000+rnd()*6000}));
   function frame(now){const p=canvas.parentElement;if(p.clientWidth!==W||p.clientHeight!==H)resize();ctx.clearRect(0,0,W,H);
@@ -215,8 +180,8 @@
       const r=b.size*W*(1+0.06*Math.sin(now/b.zPeriod*6.283+b.zPhase));
       const g=ctx.createRadialGradient(x,y,0,x,y,r);
       const [cr,cg,cb]=b.col;
-      g.addColorStop(0,`rgba(${cr},${cg},${cb},0.16)`);
-      g.addColorStop(0.7,`rgba(${cr},${cg},${cb},0.07)`);
+      g.addColorStop(0,`rgba(${cr},${cg},${cb},0.26)`);
+      g.addColorStop(0.7,`rgba(${cr},${cg},${cb},0.11)`);
       g.addColorStop(1,`rgba(${cr},${cg},${cb},0)`);
       ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,6.283);ctx.fill();
     }
