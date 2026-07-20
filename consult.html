@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start Your Consultation — Modern Med Spa</title>
+<style>
+  :root{
+    --ink:#2F3A4B;
+    --coral:#F76C5E;
+    --coral-dark:#e05a4c;
+    --cream:#F5EDE6;
+    --white:#ffffff;
+    --muted:#5f6b7c;
+    --font-head:"Montserrat","Montserrat Custom",Futura,"Century Gothic","Segoe UI",Arial,sans-serif;
+    --font-body:"Poppins","Segoe UI",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--cream);display:flex;flex-direction:column;height:100dvh;}
+
+  .topbar{background:var(--white);border-bottom:1px solid #e8e4de;flex:none;}
+  .topbar-inner{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .back{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap;}
+  .back svg{width:16px;height:16px;stroke:var(--ink);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .back:hover{color:var(--coral);}
+  .back:hover svg{stroke:var(--coral);}
+  .brand{font-family:var(--font-head);font-weight:800;font-size:17px;letter-spacing:.14em;text-transform:uppercase;text-align:center;}
+  .brand small{display:block;font-family:var(--font-body);font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:none;color:var(--muted);margin-top:1px;}
+  .call{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap;}
+  .call svg{width:16px;height:16px;stroke:var(--coral);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .call:hover{color:var(--coral);}
+  @media(max-width:640px){
+    .back span,.call span{display:none;}
+    .brand{font-size:14px;}
+  }
+
+  .chat-shell{flex:1;min-height:0;display:flex;justify-content:center;padding:18px 16px 20px;}
+  .chat-frame{position:relative;width:100%;max-width:860px;background:var(--white);border-radius:14px;box-shadow:0 12px 44px rgba(47,58,75,.14);overflow:hidden;display:flex;}
+  @media(max-width:640px){
+    .chat-shell{padding:0;}
+    .chat-frame{max-width:none;border-radius:0;box-shadow:none;}
+  }
+  .chat-frame iframe{width:100%;height:100%;border:0;position:relative;z-index:2;background:#fff;}
+
+  #consult-fallback{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center;color:var(--muted);font-size:15px;line-height:1.7;}
+  #consult-fallback strong{color:var(--ink);font-size:17px;}
+  #consult-fallback .btn{display:inline-block;background:var(--coral);color:#fff;font-family:var(--font-head);font-weight:800;font-size:16px;line-height:1;padding:14px 30px;border-radius:4px;text-decoration:none;}
+  #consult-fallback .btn:hover{background:var(--coral-dark);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="back" href="index.html">
+      <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
+      <span>Back to Peptide Therapy</span>
+    </a>
+    <div class="brand">Modern Med Spa<small>Consultation Assistant</small></div>
+    <a class="call" href="tel:+18019878653">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.64 2.62a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.46-1.21a2 2 0 0 1 2.11-.45c.84.3 1.72.52 2.62.64A2 2 0 0 1 22 16.92z"/></svg>
+      <span>801.987.8653</span>
+    </a>
+  </div>
+</div>
+
+<div class="chat-shell">
+  <div class="chat-frame">
+    <div id="consult-fallback">
+      <strong>Our consultation assistant couldn't load.</strong>
+      <span>No problem — our team is one call away. Reach us at the number below and we'll get your consultation scheduled with a licensed provider.</span>
+      <a class="btn" href="tel:+18019878653">Call 801.987.8653</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var ORIGIN="https://eva.agent.dnaeducacao.com";
+  var FLOW_ID="";/* consultation_intake flow id — set once the flow exists on eva.dna */
+  var url=ORIGIN+"/widget/chat"+(FLOW_ID?"?flowId="+encodeURIComponent(FLOW_ID):"");
+  var frameHost=document.querySelector(".chat-frame");
+  var fallback=document.getElementById("consult-fallback");
+  var loaded=false,dropped=false;
+
+  var iframe=document.createElement("iframe");
+  iframe.src=url;
+  iframe.title="Modern Med Spa consultation chat";
+  iframe.allow="clipboard-write";
+  iframe.addEventListener("load",function(){loaded=true;});
+  frameHost.appendChild(iframe);
+
+  function dropFrame(){
+    if(dropped)return;
+    dropped=true;
+    iframe.remove();
+  }
+  document.addEventListener("securitypolicyviolation",function(e){
+    if(e.blockedURI&&e.blockedURI.indexOf(ORIGIN)===0){dropFrame();}
+  });
+  setTimeout(function(){if(!loaded){dropFrame();}},8000);
+
+  window.addEventListener("message",function(e){
+    if(e.origin===ORIGIN&&e.data&&e.data.type==="CLOSE_CHAT"){
+      window.location.href="index.html";
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
